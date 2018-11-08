@@ -10,14 +10,13 @@ import
   React, {
   Component } from 'react';
 import {
+  Container,
   Card,
-  CardImg,
   CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
-  ButtonGroup } from 'reactstrap';
+  Button } from 'reactstrap';
 
 
 /* **********  REQUIREMENTS  ********** */
@@ -31,41 +30,63 @@ class Playground extends Component {
     super()
     this.state = {
       trelloCards: [],
-      search: "",
       selectedCard: null
     }
   }
 
   // Methods
-  async getCards() {
-    const res   = await fetch(`https://api.trello.com/1/lists/${config.db.list}/cards?key=${config.db.key}&token=${config.db.token}`);
+  async componentDidMount() {
+    const url   = `https://api.trello.com/1/lists/${config.db.list}/cards?key=${config.db.key}&token=${config.db.token}`;
+    const res   = await fetch(url);
     const json  = await res.json();
-    this.setState({trelloCards: json})
+    this.setState({ trelloCards: json });
   }
 
+  updateCard = selectedCard => {
+    let id   = selectedCard.id;
+    let name = selectedCard.name;
+    let desc = selectedCard.desc;
+    let path = `playground/${id}/${name}/${desc}`;
 
+    // Push the path to the history stack.
+    this.props.history.push(path);
+  }
 
+  deleteCard = async (selectedCard) => {
+    const id   = selectedCard.id;
+    const url  = `https://api.trello.com/1/cards/${id}?key=${config.db.key}&token=${config.db.token}`;
+    const obj  = {
+      method:   'DELETE',
+      headers:  { 'Content-Type': 'application/json' }
+    }
+    const res = await fetch(url, obj)
+      .catch(error => console.error("Unable to delete the user.", error));
+    const json  = await res.json();
+    // this.setState({ trelloCards: json });
+  }
+
+  // Render the cards
   render() {
-    this.getCards();
     let results = this.state.trelloCards;
 
     return (
-      <div className="Playground">
+      <Container md="3">
         {results.map(result =>
           <Card key={ result.id }>
-            <CardImg top width="100%" src="" alt="Card image cap" />
             <CardBody>
               <CardTitle>{ result.name }</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+              <CardSubtitle>{ result.desc }</CardSubtitle>
+              <hr width="90%"/>
+              <CardText>Click the Update button to modify the Name and/or Description, the Delete button to remove.</CardText>
               <div>
-                <Button color="primary">Update</Button>{' '}
-                <Button color="danger" >Delete</Button>
+                <Button color="primary" onClick={ () => this.updateCard(result) } >Update</Button>{' '}
+                <Button color="success"  onClick={ () => this.addCard(result)   } >Add New Card</Button>{' '}
+                <Button color="danger"  onClick={ () => this.deleteCard(result) } >Delete</Button>
               </div>
             </CardBody>
           </Card>
         )};
-      </div>
+      </Container>
     );
   }
 }
