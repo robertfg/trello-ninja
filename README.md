@@ -24,7 +24,3 @@ This project uses
 5. Type "nodemon" or "npm start" to run the project.
 6. Open the browser and enter the url "localhost:2907".
 
-## Development Notes
-
-There is another branch "Develop" that contains the Allergy Tracker version 2 website, which uses Pug templates.
-
