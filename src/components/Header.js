@@ -6,11 +6,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
-  // UncontrolledDropdown,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem } from 'reactstrap';
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -37,26 +37,13 @@ export default class Header extends React.Component {
               <NavItem>
                 <NavLink href="/">Home</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="/playground">Playground</NavLink>
-              </NavItem>
-              {/*<UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>Playground</DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem href="/playground">List Cards</DropdownItem>
+                  <DropdownItem href="/addcard">Add New Cards</DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>*/}
+              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Navbar>

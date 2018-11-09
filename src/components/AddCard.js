@@ -21,35 +21,23 @@ const config = require('../config');
 
 
 /* **********  PLAYGROUND COMPONENT  ********** */
-class UpdateCard extends Component {
-
-  // Contructor
-  constructor ( { match } ) {
-    super();
-    this.id    = match.params.id;
-    this.name  = match.params.name;
-    this.desc  = match.params.desc;
-  }
+class AddCard extends Component {
 
   handleSubmit = async(e) => {
     // Don't allow form to do a real submission on submit.
     e.preventDefault();
 
-    this.name  = this.cardName.value;
-    this.desc  = this.cardDesc.value;
-
-    console.log(this.name);
-    console.log(this.desc);
-
-    const url  = `https://api.trello.com/1/cards/${this.id}?key=${config.db.key}&token=${config.db.token}&name=${this.name}&desc=${this.desc}`;
-    const obj  = {
-      method:   'PUT',
+    let name  = this.cardName.value;
+    let desc  = this.cardDesc.value;
+    const url = `https://api.trello.com/1/cards?key=${config.db.key}&token=${config.db.token}&idList=${config.db.list}&name=${name}&desc=${desc}`;
+    const obj = {
+      method:   'POST',
       headers:  { 'Content-Type': 'application/json' }
     }
 
-    // Update
+    // Insert
     await fetch(url, obj)
-      .catch(error => console.error("Unable to update the user.", error));
+      .catch(error => console.error("Unable to add the user.", error));
 
     // Push the path to the history stack.
     this.props.history.push('/playground');
@@ -62,16 +50,16 @@ class UpdateCard extends Component {
         <legend>Card Details</legend>
         <FormGroup>
           <Label for="cardName">Name:</Label>
-          <Input id ="cardName" type="text" defaultValue={this.name} innerRef={ ( input ) => this.cardName = input } />
+          <Input id ="cardName" type="text" placeholder="Name" innerRef={ ( input ) => this.cardName = input } />
         </FormGroup>
         <FormGroup>
           <Label for="cardDesc">Description:</Label>
-          <Input id ="cardDesc" type="text" defaultValue={this.desc} innerRef={ ( input ) => this.cardDesc = input } />
+          <Input id ="cardDesc" type="text" placeholder="Description" innerRef={ ( input ) => this.cardDesc = input } />
         </FormGroup>
-        <Button color="primary" type="submit">Update Card</Button>
+        <Button color="primary" type="submit">Add Card</Button>
       </Form>
     );
   }
 }
 
-export default UpdateCard;
+export default AddCard;

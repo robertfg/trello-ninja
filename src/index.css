@@ -12,3 +12,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* =================================
+  LAYOUT & PAGE STYLES
+==================================== */
+
+.main-content {
+  padding: 5em 2em;
+}
+
+/* IMAGES -------- */
+
+.not-found {
+  text-align: center;
+}
+
+/* ICONS -------- */
+
+.icn-error {
+  font-size: 3.2em;
+  margin-bottom: .25em;
+}

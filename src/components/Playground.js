@@ -59,10 +59,16 @@ class Playground extends Component {
       method:   'DELETE',
       headers:  { 'Content-Type': 'application/json' }
     }
-    const res = await fetch(url, obj)
+
+    // Deletion
+    await fetch(url, obj)
       .catch(error => console.error("Unable to delete the user.", error));
-    const json  = await res.json();
-    // this.setState({ trelloCards: json });
+
+    // Update screen with new array of trelloCards
+    this.setState(state => {
+      const newTrelloCards = state.trelloCards.filter(trelloCard => trelloCard.id !== selectedCard.id);
+      return { trelloCards: newTrelloCards };
+    });
   }
 
   // Render the cards
@@ -70,7 +76,7 @@ class Playground extends Component {
     let results = this.state.trelloCards;
 
     return (
-      <Container md="3">
+      <Container>
         {results.map(result =>
           <Card key={ result.id }>
             <CardBody>
@@ -80,12 +86,11 @@ class Playground extends Component {
               <CardText>Click the Update button to modify the Name and/or Description, the Delete button to remove.</CardText>
               <div>
                 <Button color="primary" onClick={ () => this.updateCard(result) } >Update</Button>{' '}
-                <Button color="success"  onClick={ () => this.addCard(result)   } >Add New Card</Button>{' '}
                 <Button color="danger"  onClick={ () => this.deleteCard(result) } >Delete</Button>
               </div>
             </CardBody>
           </Card>
-        )};
+        )}
       </Container>
     );
   }
