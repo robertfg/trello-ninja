@@ -1,5 +1,5 @@
 # Trello Ninja
-Code Louisville November 2018 Front End Web Development Project
+Code Louisville November 2018 React Front End Web Development Project
 
 #### Robert Glover
 #### November 2018
@@ -8,11 +8,11 @@ Code Louisville November 2018 Front End Web Development Project
 
 This repository consists of the Trello Ninja version 1 website.
 
-Version 1 of the website consists of a user database, but will eventually allow users to enter items they are allergic to.  This website allows a person to enter new users, edit existing users, toggle the status of users from active to inactive and vice-versa, and delete users.    
+This website consumes the Trello API and allows users to list cards in a Trello "To Do" list, and add, update, and delete these cards.
 
 This project uses
-* React, React-Router-DOM
-* HTML, CSS, JavaScript, and jQuery on the front-end; and
+* React, React Router
+* HTML, CSS, and JavaScript; and
 * Reactstrap for responsive web design.
 
 ## Instructions
