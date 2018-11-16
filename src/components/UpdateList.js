@@ -77,7 +77,7 @@ class UpdateList extends Component {
   // Return result
   render() {
     return (
-      <Container className="main-content">
+      <Container className="main-form">
         <Form onSubmit={ this.handleSubmit } >
           <legend>Card Details</legend>
           <FormGroup>

@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: GhostWhite;
 }
 
 code {
@@ -24,6 +25,37 @@ code {
 
 .main-content {
   padding: 5em 2em;
+}
+
+.main-content__hr {
+  background: DodgerBlue;
+}
+
+.main-content__link {
+  color: DodgerBlue;
+}
+
+.jumbo {
+  /* border: DodgerBlue 2px solid; */
+  background: PowderBlue;
+}
+
+.main-form {
+  padding: 2em;
+  margin: auto;
+}
+
+.pg-content {
+  padding: 2em;
+}
+
+.card-content {
+  border: PowderBlue 2px solid;
+  margin: .5em;
+}
+
+.card-content__hr {
+  background-color: rgba(30, 144, 255, 0.3);
 }
 
 /* IMAGES -------- */

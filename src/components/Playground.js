@@ -79,13 +79,13 @@ class Playground extends Component {
     let results = this.state.trelloCards;
 
     return (
-      <Container className="main-content">
+      <Container className="pg-content">
         {results.map(result =>
-          <Card key={ result.id }>
+          <Card className="card-content" key={ result.id }>
             <CardBody>
               <CardTitle>{ result.name }</CardTitle>
               <CardSubtitle>{ result.desc }</CardSubtitle>
-              <hr width="90%"/>
+              <hr className="card-content__hr" width="90%"/>
               <CardText>Click the Update button to modify the Name and/or Description, the Delete button to remove.</CardText>
               <div>
                 <Button color="primary" onClick={ () => this.updateCard(result) } >Update</Button>{' '}
