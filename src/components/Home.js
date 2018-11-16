@@ -12,7 +12,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Jumbotron>
+        <Jumbotron className="main-content">
           <h1 className="display-3">Trello Ninja</h1>
           <p className="lead">Front End Framework Project</p>
           <hr className="my-2" />

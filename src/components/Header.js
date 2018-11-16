@@ -29,7 +29,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="success" light expand="md">
           <NavbarBrand href="/">Trello Ninja</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -41,7 +41,7 @@ export default class Header extends React.Component {
                 <DropdownToggle nav caret>Playground</DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem href="/playground">List Cards</DropdownItem>
-                  <DropdownItem href="/addcard">Add New Cards</DropdownItem>
+                  <DropdownItem href="/addcard">Add New Card</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

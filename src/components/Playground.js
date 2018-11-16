@@ -5,10 +5,11 @@
   DELETE: https://api.trello.com/1/cards/${CARDID}?key=${config.db.key}&token=${config.db.token}
 */
 
+
 /* **********  IMPORTS  ********** */
 import
   React, {
-  Component } from 'react';
+  Component }             from 'react';
 import {
   Container,
   Card,
@@ -16,7 +17,9 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button } from 'reactstrap';
+  Button }                from 'reactstrap';
+// import
+//   ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 /* **********  REQUIREMENTS  ********** */
@@ -76,7 +79,7 @@ class Playground extends Component {
     let results = this.state.trelloCards;
 
     return (
-      <Container>
+      <Container className="main-content">
         {results.map(result =>
           <Card key={ result.id }>
             <CardBody>
@@ -96,4 +99,6 @@ class Playground extends Component {
   }
 }
 
+
+/* **********  EXPORTS  ********** */
 export default Playground;

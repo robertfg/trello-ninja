@@ -4,6 +4,7 @@ import
   { Component } from 'react';
 import {
   Button,
+  Container,
   Form,
   FormGroup,
   Label,
@@ -15,14 +16,23 @@ const config = require('../config');
 
 
 /* **********  PLAYGROUND COMPONENT  ********** */
-class UpdateCard extends Component {
+class UpdateList extends Component {
 
   // Contructor
   constructor ( { match } ) {
     super();
+
+    console.log('match: ', match.params);
+
     this.id    = match.params.id;
     this.name  = match.params.name;
     this.desc  = match.params.desc;
+
+    console.log(this.id);
+    console.log(this.name);
+    console.log(this.desc);
+    console.log(arguments);
+    console.log(arguments.length);
   }
 
   handleSubmit = async(e) => {
@@ -49,22 +59,24 @@ class UpdateCard extends Component {
   // Return result
   render() {
     return (
-      <Form onSubmit={ this.handleSubmit } >
-        <legend>Card Details</legend>
-        <FormGroup>
-          <Label for="cardName">Name:</Label>
-          <Input id ="cardName" type="text" defaultValue={this.name} innerRef={ ( input ) => this.cardName = input } />
-        </FormGroup>
-        <FormGroup>
-          <Label for="cardDesc">Description:</Label>
-          <Input id ="cardDesc" type="text" defaultValue={this.desc} innerRef={ ( input ) => this.cardDesc = input } />
-        </FormGroup>
-        <Button color="primary" type="submit">Update Card</Button>
-      </Form>
+      <Container>
+        <Form onSubmit={ this.handleSubmit } >
+          <legend>Card Details</legend>
+          <FormGroup>
+            <Label for="cardName">Name:</Label>
+            <Input id ="cardName" type="text" defaultValue={this.name} innerRef={ ( input ) => this.cardName = input } />
+          </FormGroup>
+          <FormGroup>
+            <Label for="cardDesc">Description:</Label>
+            <Input id ="cardDesc" type="text" defaultValue={this.desc} innerRef={ ( input ) => this.cardDesc = input } />
+          </FormGroup>
+          <Button color="primary" type="submit">Update Card</Button>
+        </Form>
+      </Container>
     );
   }
 }
 
 
 /* **********  EXPORTS  ********** */
-export default UpdateCard;
+export default UpdateList;

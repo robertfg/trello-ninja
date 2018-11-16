@@ -10,8 +10,7 @@ import {
 import Header     from './components/Header';
 import Home       from './components/Home';
 import Playground from './components/Playground';
-import UpdateCard from './components/UpdateCard';
-import AddCard    from './components/AddCard';
+import UpdateList from './components/UpdateList';
 import NotFound   from './components/NotFound';
 
 // import './App.css';
@@ -27,8 +26,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/"                           component = { Home } />
             <Route exact path="/playground"                 component = { Playground } />
-            <Route       path="/playground/:id/:name/:desc" component = { UpdateCard } />
-            <Route       path="/addcard"                    component = { AddCard } />
+            <Route       path="/playground/:id/:name/:desc" component = { UpdateList } />
+            <Route       path="/addcard"                    component = { UpdateList } />
             <Route                                          component = { NotFound } />
           </Switch>
         </div>
@@ -37,4 +36,6 @@ class App extends Component {
   }
 }
 
+
+/* **********  EXPORTS  ********** */
 export default App;

@@ -1,10 +1,3 @@
-/*
-  GET:    https://api.trello.com/1/lists/${config.db.list}/cards?key=${config.db.key}&token=${config.db.token}
-  POST:   https://api.trello.com/1/cards?key=${config.db.key}&token=${config.db.token}&idList=${config.db.list}&name=${NEWNAME}
-  PUT:    https://api.trello.com/1/cards/${CARDID}?key=${config.db.key}&token=${config.db.token}&name=${NEWNAME}
-  DELETE: https://api.trello.com/1/cards/${CARDID}?key=${config.db.key}&token=${config.db.token}
-*/
-
 /* **********  IMPORTS  ********** */
 import
   React,
@@ -15,6 +8,7 @@ import {
   FormGroup,
   Label,
   Input }       from 'reactstrap';
+
 
 /* **********  REQUIREMENTS  ********** */
 const config = require('../config');
@@ -62,4 +56,6 @@ class AddCard extends Component {
   }
 }
 
+
+/* **********  EXPORTS  ********** */
 export default AddCard;
