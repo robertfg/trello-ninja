@@ -22,3 +22,5 @@ This project uses
 3. Type "npm install" to install the node dependencies.
 4. Type "npm start" to run the project.
 5. The browser should open automatically.  If it does not, enter the url "localhost:3000".
+
+The program will start on localhost:3000.
